@@ -1,0 +1,1729 @@
+:root {
+    --primary-color: #C48F8F;
+    /* Dusty Rose Pink */
+    /* Updated from Antique Gold */
+    --text-color: #555;
+    --background-color: #F0F0F0;
+    /* Light textured grey/white */
+    --card-bg: #FCFCFC;
+    /* Creamy white paper */
+    --font-heading: 'Pinyon Script', cursive;
+    /* Elegant Script */
+    --font-subheading: 'Marcellus', serif;
+    /* Classic Roman Stylle */
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    /* Subtle paper texture pattern could go here */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZjBmMGYwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNlYWVhZWEiLz4KPC9zdmc+');
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Entry Overlay */
+#entry-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f5f2;
+    /* Cream background */
+    z-index: 9999;
+    /* Highest priority */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.overlay-floral {
+    position: absolute;
+    width: 250px;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 1;
+    /* Behind content but in overlay */
+}
+
+.overlay-top-left {
+    top: -30px;
+    left: -30px;
+}
+
+.overlay-bottom-right {
+    bottom: -30px;
+    right: -30px;
+    transform: rotate(180deg);
+}
+
+#entry-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.overlay-content {
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1.5s ease;
+    position: relative;
+    z-index: 2;
+    /* Above flowers */
+}
+
+.couple-names-overlay {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: #C48F8F;
+    margin-bottom: 20px;
+}
+
+.couple-names-overlay span {
+    font-size: 2rem;
+    color: #8d775f;
+}
+
+.overlay-text {
+    font-family: var(--font-subheading);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+#enter-btn {
+    background-color: #fff;
+    color: #C48F8F;
+    border: 1px solid #C48F8F;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-family: var(--font-subheading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(196, 143, 143, 0.2);
+    transition: all 0.3s ease;
+}
+
+#enter-btn:hover {
+    background-color: #C48F8F;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(196, 143, 143, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+h2,
+h3 {
+    font-family: var(--font-subheading);
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Container for the Card */
+.invitation-container {
+    min-height: 100vh;
+    /* Allow content to dictate height, removing excess gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 30px;
+    /* Reduced bottom padding */
+    position: relative;
+    background: url('assets/hero-bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* The Envelope/Card Wrapper */
+.card-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+    margin-top: 60px;
+    /* Space for the top envelope part */
+}
+
+/* Floral Liner visible at top */
+.envelope-liner {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    z-index: 0;
+}
+
+.envelope-liner img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+/* The Main Card */
+.invitation-card {
+    background-color: var(--card-bg);
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    border-radius: 2px;
+}
+
+/* Inner Pink Border */
+.invitation-card::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid #C48F8F;
+    /* Dusty Rose Pink */
+    pointer-events: none;
+}
+
+/* Wax Seal */
+.wax-seal {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    z-index: 2;
+}
+
+.wax-seal img {
+    width: 100%;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Typography on Card */
+.intro-text {
+    font-family: var(--font-subheading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.couple-names {
+    font-size: 4.5rem;
+    color: #4a4a4a;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.couple-names span {
+    display: block;
+    font-size: 2rem;
+    font-family: var(--font-subheading);
+    margin-top: -10px;
+    margin-bottom: -10px;
+    color: #aaa;
+}
+
+.wedding-date {
+    font-family: var(--font-subheading);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1rem;
+    color: #555;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-family: var(--font-subheading);
+    font-size: 0.8rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Audio Player Section (Below Card) */
+.music-player-container {
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    width: 100%;
+    max-width: 500px;
+    /* Match card width */
+    padding: 0 20px;
+}
+
+.music-player-container p {
+    font-family: var(--font-subheading);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.play-button {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #C48F8F;
+    /* Pink Border */
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0px;
+    /* Remove extra space */
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    background-color: white;
+}
+
+.play-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #C48F8F;
+    /* Pink Icon */
+    margin-left: 4px;
+    /* Optical adjustment */
+}
+
+/* Container to prevent horizontal scroll from decorations */
+.flowers-overflow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    /* Behind card */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sections below */
+section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    /* Increased max-width for better desktop feel */
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+/* Gallery & Details tweaks */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    height: 300px;
+}
+
+/* Countdown Section */
+/* Countdown Section Redesign */
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-box span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    background-color: #fff;
+    /* White card */
+    border-radius: 16px;
+    /* Soft rounded corners */
+    box-shadow: 0 5px 20px rgba(196, 143, 143, 0.15);
+    /* Soft pink shadow */
+    border: 1px solid rgba(196, 143, 143, 0.15);
+    /* Subtle pink border */
+    font-size: 2.2rem;
+    font-family: var(--font-subheading);
+    color: #4a4a4a;
+    /* Dark grey for contrast */
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.time-box div {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #8d775f;
+    /* Gold/Bronze for labels per palette */
+    margin-top: 0;
+}
+
+/* Couple Section */
+.couple-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    text-align: left;
+}
+
+.couple-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.couple-image img {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 10px 10px 0px rgba(212, 175, 55, 0.2);
+    /* Offset gold shadow */
+}
+
+.couple-text {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.couple-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.couple-text p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Details Section */
+.details-section {
+    background-color: var(--card-bg);
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.location-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Location Card Redesign */
+.details-section {
+    padding: 40px 20px 60px;
+    background-color: transparent;
+}
+
+.location-card {
+    background-color: #fffdf9;
+    /* Cream/White */
+    /* If you have the texture, uncomment: background-image: url('assets/paper-texture.png'); */
+    padding: 80px 30px 40px;
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.wax-seal-location {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    z-index: 10;
+}
+
+.wax-seal-location img {
+    width: 100%;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.loc-floral-corner {
+    position: absolute;
+    width: 120px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loc-top-left {
+    top: 0;
+    left: 0;
+}
+
+.loc-top-right {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.contents-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ceremony-intro {
+    font-family: var(--font-subheading);
+    color: #C48F8F;
+    /* Dusty Rose Pink */
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.location-time {
+    font-size: 1.5rem;
+    color: #8d775f;
+    margin: 10px 0;
+    font-family: var(--font-subheading);
+}
+
+.location-venue {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: var(--font-subheading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.location-address {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.location-icon-img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+/* Button Color Update - Pink Palette */
+.location-btn {
+    display: inline-block;
+    background-color: #F8F5F2;
+    /* Pearl/Cream background */
+    color: #C48F8F;
+    /* Pink Text */
+    border: 1px solid #C48F8F;
+    /* Pink Border */
+    padding: 12px 35px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-family: var(--font-subheading);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(196, 143, 143, 0.2);
+    /* Soft pink shadow */
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.location-btn:hover {
+    background-color: #C48F8F;
+    color: white;
+}
+
+.map-embed {
+    width: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+/* Calendar Section */
+.calendar-section {
+    background-color: #fff;
+    padding: 60px 20px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.calendar-corner-img {
+    position: absolute;
+    width: 150px;
+    opacity: 0.8;
+}
+
+.corner-top-left {
+    top: -20px;
+    left: -20px;
+    transform: rotate(0deg);
+}
+
+.calendar-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.calendar-month {
+    font-family: var(--font-subheading);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: #555;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    padding-bottom: 10px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: var(--font-subheading);
+    color: #444;
+}
+
+.calendar-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #888;
+}
+
+.calendar-day {
+    padding: 10px;
+    position: relative;
+}
+
+.calendar-day.empty {
+    pointer-events: none;
+}
+
+.calendar-day.wedding-day {
+    color: white;
+    font-weight: bold;
+    z-index: 1;
+    /* Ensure you stay on top */
+}
+
+.calendar-day.wedding-day::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    /* Pink Heart Icon #C48F8F */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C48F8F'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
+
+.wedding-text-date {
+    font-family: var(--font-subheading);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #555;
+    margin-top: 30px;
+    letter-spacing: 2px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    width: 80%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Photo divider */
+/* Photo Banner Wrapper */
+.photo-banner {
+    position: relative;
+    z-index: 1;
+    /* Lower stacking context */
+    width: 100%;
+}
+
+.photo-divider {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-top: 0;
+    display: block;
+    position: relative;
+    /* z-index is handled by wrapper now, but keep for safety */
+    z-index: 1;
+}
+
+/* Parents Section */
+.parents-section {
+    padding: 0 20px 60px;
+    background-color: #f7f5f2;
+    /* Soft Pearl/Cream */
+    position: relative;
+    z-index: 5;
+    /* Higher stacking context - MUST BE ABOVE PHOTO */
+    overflow: visible;
+    /* Essential for negative margin overlap */
+    margin-top: 0;
+    /* Reset */
+}
+
+.parents-card {
+    background-color: var(--card-bg);
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    max-width: 420px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-top: -100px;
+    /* Clear overlap above the photo */
+    z-index: 20;
+    /* Ensure it is on top */
+    border-radius: 4px;
+}
+
+.floral-parents-left {
+    bottom: -20px;
+    left: -40px;
+    transform: rotate(20deg);
+    width: 220px;
+    z-index: 0;
+}
+
+.floral-parents-right {
+    top: 50px;
+    right: -40px;
+    transform: scaleX(-1) rotate(-10deg);
+    width: 220px;
+    z-index: 0;
+}
+
+.wax-seal-small {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+}
+
+.wax-seal-small img {
+    width: 100%;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.blessing-text {
+    font-family: var(--font-subheading);
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.divider-ornament {
+    width: 200px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.parents-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.parents-group h3,
+.godparents-group h3 {
+    font-family: var(--font-subheading);
+    font-size: 1rem;
+    color: #C48F8F;
+    /* Dusty Rose Pink */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.parents-group p,
+.godparents-group p {
+    font-family: var(--font-subheading);
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* Minimal dove icon for in memoriam */
+.in-memoriam {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.in-memoriam::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 14c3-1 5-3 6-5 1-2 3-3 5-3 2 0 3 1 3 2s-1 2-2 2h-2l2 2c1 1 2 2 2 3s-1 2-2 2-2-1-3-2l-3-2-1 2c-.7 1.6-2 2.7-3.7 3-1.9.3-3.8-.6-4.7-2.3' fill='none' stroke='%23C48F8F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='20' cy='6' r='1' fill='%23C48F8F'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}
+
+/* Itinerary Section */
+/* Itinerary Section */
+/* Itinerary Section */
+.itinerary-section {
+    background-color: #f7f5f2;
+    /* Soft Pearl/Cream */
+    padding-bottom: 60px;
+    padding-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.floral-deco {
+    position: absolute;
+    width: 250px;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floral-left {
+    bottom: 50px;
+    left: -50px;
+    transform: rotate(45deg);
+}
+
+.floral-right {
+    top: 50px;
+    right: -50px;
+    transform: scaleX(-1) rotate(15deg);
+}
+
+/* Updated Itinerary Arch - Pill/Capsule Shape */
+.itinerary-arch {
+    background-color: #fff;
+    border-radius: 170px;
+    /* Adjusted radius */
+    padding: 60px 15px 60px;
+    max-width: 380px;
+    /* Narrower for pill shape look */
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+
+.itinerary-title {
+    font-family: var(--font-subheading);
+    font-size: 2rem;
+    color: #C48F8F;
+    /* Dusty Rose Pink */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+}
+
+/* Timeline Redesign */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    /* Constrain width on large screens */
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Central Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: #D4A5A5;
+    /* Pinkish Line */
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding-bottom: 25px;
+    /* More compact spacing */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Left items */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    align-items: flex-end;
+    text-align: right;
+    padding-right: 25px;
+    /* Closer but enough for big icon */
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    align-items: flex-end;
+}
+
+/* Right items */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 25px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    align-items: flex-start;
+}
+
+/* Timeline Icons */
+.timeline-icon {
+    width: 60px;
+    /* Still large but balanced */
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+/* Markers (Hearts) on the line */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    width: 24px;
+    height: 24px;
+    /* Soft Blush Pink Heart #D4A5A5 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D4A5A5'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    /* Still white to mask the line */
+    z-index: 2;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -12px;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -12px;
+}
+
+/* Content styling */
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-time {
+    font-weight: bold;
+    font-family: var(--font-subheading);
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.timeline-event {
+    color: #666;
+    font-family: var(--font-subheading);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+/* Mobile Responsive Timeline */
+@media (max-width: 600px) {
+
+    /* Hide central line on mobile or move it */
+    .timeline::before {
+        left: 20px;
+        /* Move line to left */
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px !important;
+        /* Space for line/icon */
+        padding-right: 0 !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        left: 0 !important;
+    }
+
+    .timeline-item:nth-child(odd) {
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+
+    .timeline-item .timeline-content {
+        align-items: flex-start !important;
+    }
+
+    /* Adjust markers */
+    .timeline-item::after {
+        left: 8px !important;
+        /* Align with new line position */
+        right: auto !important;
+    }
+
+    .timeline-icon {
+        width: 45px;
+        height: 45px;
+        margin-left: 0;
+    }
+}
+
+/* Info Cards Section (Global) */
+.info-cards-section {
+    padding: 80px 20px;
+    background-color: #f7f5f2;
+    /* Soft Pearl/Cream */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    /* Row by default on desktop */
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 40px;
+}
+
+.info-card {
+    background-color: #fff;
+    padding: 60px 30px 40px;
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.wax-seal-corner-right {
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    width: 80px;
+    z-index: 10;
+    transform: rotate(15deg);
+}
+
+.wax-seal-corner-right img {
+    width: 100%;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.info-card h3 {
+    font-family: var(--font-subheading);
+    color: #555;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.info-icon {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.dress-code-card h4 {
+    font-family: var(--font-subheading);
+    color: #8d775f;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    font-family: var(--font-subheading);
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Account button - pink palette */
+.account-btn {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #C48F8F;
+    color: #fff;
+    border: 1px solid #C48F8F;
+    padding: 12px 35px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-family: var(--font-subheading);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 10px rgba(196, 143, 143, 0.25);
+    cursor: pointer;
+}
+
+.account-btn:hover {
+    background-color: #b57c7c;
+    border-color: #b57c7c;
+}
+
+/* Modal styles (Global) */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    max-width: 520px;
+    width: 100%;
+    padding: 30px 25px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-title {
+    font-family: var(--font-subheading);
+    color: #C48F8F;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.modal-text {
+    font-family: var(--font-subheading);
+    color: #555;
+    margin: 5px 0;
+}
+
+.modal-label {
+    font-family: var(--font-subheading);
+    color: #8d775f;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+}
+
+.modal-account-number {
+    font-family: var(--font-subheading);
+    font-size: 1.4rem;
+    color: #333;
+    margin: 10px 0 15px;
+}
+
+.modal-copy-btn {
+    background-color: #C48F8F;
+    color: #fff;
+    border: 1px solid #C48F8F;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-family: var(--font-subheading);
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.modal-copy-btn:hover {
+    background-color: #b57c7c;
+    border-color: #b57c7c;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal-close:hover {
+    color: #666;
+}
+
+/* Responsive Block */
+@media (max-width: 600px) {
+    .couple-names {
+        font-size: 3rem;
+    }
+
+    .invitation-card {
+        padding: 40px 15px;
+    }
+
+    .card-wrapper {
+        width: 90%;
+    }
+
+    /* Narrower Parents & Itinerary on Mobile */
+    .parents-card {
+        width: 85%;
+        /* Much narrower */
+        padding: 40px 15px;
+        max-width: none;
+        margin-top: -70px;
+        /* Clear but proportionate overlap on mobile */
+    }
+
+    /* Mobile specific overrides for info cards */
+    .info-cards-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        padding: 60px 20px;
+    }
+
+    .info-card {
+        max-width: 500px;
+        /* Use full width style on mobile */
+        margin: 0 auto;
+    }
+
+    .wax-seal-corner-right {
+        right: -10px;
+        width: 70px;
+    }
+
+    /* Keep nesting of other mobile styles */
+
+    /* Ensure previously nested recursive media query logic is kept flat */
+
+
+
+
+    .itinerary-arch {
+        width: 85%;
+        /* Much narrower */
+        padding: 50px 10px 50px;
+        /* Reduced vertical padding */
+        max-width: none;
+        border-radius: 100px;
+        /* Adjusted pill shape */
+    }
+
+    .itinerary-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    /* Countdown Mobile Adjustments */
+    #countdown {
+        gap: 10px;
+        flex-wrap: nowrap;
+        margin-top: 20px;
+    }
+
+    .time-box {
+        min-width: 0;
+        /* Allow shrinking */
+        flex: 1;
+    }
+
+    .time-box span {
+        width: 100%;
+        /* Responsive width */
+        max-width: 70px;
+        /* Max size on mobile */
+        height: auto;
+        aspect-ratio: 1/1;
+        /* Keep square */
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+        border-radius: 12px;
+    }
+
+    .time-box div {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Final hero section - couple photo with initials */
+.final-hero {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    /* no side margins */
+    margin: 0;
+    /* no vertical gaps */
+    padding: 0;
+    /* no vertical gaps */
+    background: transparent;
+    /* only photo visible */
+    box-shadow: none;
+    /* override section default shadow */
+    overflow: hidden;
+}
+
+.final-hero::before {
+    content: none;
+    /* remove overlay to avoid visible band */
+}
+
+.final-photo {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    display: block;
+}
+
+.final-initials {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-heading);
+    color: #fff;
+    font-size: 4rem;
+    letter-spacing: 4px;
+    z-index: 2;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 600px) {
+    .final-photo {
+        height: 60vh;
+    }
+
+    .final-initials {
+        font-size: 3rem;
+        top: 16px;
+    }
+}
+
+
+
+/* Remove gap from countdown before final photo */
+.countdown-section {
+    margin-bottom: 0 !important;
+    padding-top: 30px !important;
+    /* reduced top padding */
+    padding-bottom: 24px !important;
+    /* subtle space below */
+    background-color: #f7f5f2;
+    /* cream background */
+    position: relative;
+    /* host florals */
+    overflow: hidden;
+    /* prevent overflow */
+    box-shadow: none !important;
+}
+
+/* Countdown florals positioning */
+.countdown-floral-left {
+    top: -30px;
+    left: -50px;
+    width: 220px;
+    transform: rotate(20deg);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.countdown-floral-right {
+    top: 10px;
+    right: -40px;
+    width: 220px;
+    transform: scaleX(-1) rotate(-10deg);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+/* Mobile: keep florals subtle and out of the way */
+@media (max-width: 600px) {
+    .countdown-section {
+        padding-top: 20px !important;
+    }
+
+    .countdown-section .section-title,
+    .countdown-section #countdown {
+        position: relative;
+        z-index: 1;
+    }
+
+    .countdown-floral-left {
+        width: 140px;
+        top: -50px;
+        left: -60px;
+        opacity: 0.6;
+        transform: rotate(15deg);
+    }
+
+    .countdown-floral-right {
+        width: 140px;
+        top: -25px;
+        right: -60px;
+        opacity: 0.6;
+        transform: scaleX(-1) rotate(-5deg);
+    }
+}
+
+/* Wish Box Section */
+.wish-section {
+    background-color: #f7f5f2;
+    /* Cream like itinerary */
+    position: relative;
+    overflow: hidden;
+    padding: 80px 20px 90px;
+    text-align: center;
+}
+
+.wish-floral-left {
+    top: -40px;
+    left: -60px;
+    width: 320px;
+    transform: rotate(20deg);
+    opacity: 0.95;
+    z-index: 0;
+}
+
+.wish-floral-right {
+    top: -20px;
+    right: -60px;
+    width: 320px;
+    transform: scaleX(-1) rotate(-5deg);
+    opacity: 0.95;
+    z-index: 0;
+}
+
+.wish-envelope {
+    position: relative;
+    width: 380px;
+    margin: 0 auto 0;
+    z-index: 1;
+    /* behind seal but above florals */
+}
+
+.envelope-flap {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    border-bottom: 120px solid #fbf9f6;
+    /* light cream */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+.envelope-body {
+    width: 380px;
+    height: 190px;
+    background: #fffdf9;
+    border-radius: 6px;
+    margin-top: 90px;
+    /* sits under flap */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.wish-seal {
+    top: 70px;
+    /* overlaps flap and body */
+}
+
+.wish-card {
+    background: #fff;
+    max-width: 520px;
+    margin: -30px auto 0;
+    /* slight overlap under seal */
+    padding: 40px 25px 35px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 2;
+    /* above envelope */
+}
+
+.wish-title {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.wish-text {
+    font-family: var(--font-subheading);
+    color: #666;
+    max-width: 460px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+.wish-btn {
+    display: inline-block;
+    background-color: #C48F8F;
+    color: #fff;
+    border: 1px solid #C48F8F;
+    padding: 14px 42px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-family: var(--font-subheading);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 12px rgba(196, 143, 143, 0.25);
+    cursor: pointer;
+}
+
+.wish-btn:hover {
+    background-color: #b57c7c;
+    border-color: #b57c7c;
+}
+
+@media (max-width: 600px) {
+    .wish-envelope {
+        width: 300px;
+    }
+
+    .envelope-flap {
+        border-left-width: 150px;
+        border-right-width: 150px;
+        border-bottom-width: 100px;
+    }
+
+    .envelope-body {
+        width: 300px;
+        height: 160px;
+        margin-top: 80px;
+    }
+
+    .wish-seal {
+        top: 60px;
+    }
+
+    .wish-card {
+        width: 85%;
+        padding: 30px 18px;
+    }
+
+    .wish-title {
+        font-size: 2rem;
+    }
+}
+
+/* RSVP Section */
+.rsvp-section {
+    padding: 70px 20px;
+    background-color: #f7f5f2;
+    /* cream backdrop */
+    text-align: center;
+}
+
+.rsvp-card {
+    background: #fff;
+    max-width: 420px;
+    /* not too wide */
+    margin: 0 auto;
+    padding: 50px 24px 36px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.rsvp-card::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 1px solid #C48F8F;
+    /* inner border in palette */
+    pointer-events: none;
+}
+
+.rsvp-title {
+    font-family: var(--font-subheading);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #8d775f;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+}
+
+.rsvp-text {
+    font-family: var(--font-subheading);
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.rsvp-btn {
+    display: inline-block;
+    background-color: #C48F8F;
+    /* pink button */
+    color: #fff;
+    border: 1px solid #C48F8F;
+    padding: 12px 34px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-family: var(--font-subheading);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 12px rgba(196, 143, 143, 0.25);
+    cursor: pointer;
+    margin: 6px 0 14px;
+}
+
+.rsvp-btn:hover {
+    background-color: #b57c7c;
+    border-color: #b57c7c;
+}
+
+.rsvp-note,
+.rsvp-helper {
+    font-family: var(--font-subheading);
+    color: #666;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .rsvp-card {
+        max-width: 85%;
+        padding: 40px 18px;
+    }
+}
