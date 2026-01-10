@@ -179,8 +179,17 @@ a {
     padding: 40px 20px 30px;
     /* Reduced bottom padding */
     position: relative;
-    background: url('assets/hero-bg.png') no-repeat center center fixed;
+    background: url('assets/hero-bg.png') no-repeat center center;
     background-size: cover;
+    /* Fix for iOS: fixed backgrounds often fail to render or zoom incorrectly */
+    background-attachment: scroll;
+}
+
+/* Restore parallax/fixed effect for larger screens (Desktops) */
+@media (min-width: 1025px) {
+    .invitation-container {
+        background-attachment: fixed;
+    }
 }
 
 /* The Envelope/Card Wrapper */
@@ -1156,7 +1165,7 @@ section {
     opacity: 0.9;
 }
 
-.dress-code-card h4 {
+.info-card h4 {
     font-family: var(--font-subheading);
     color: #8d775f;
     font-size: 1.2rem;
