@@ -164,7 +164,7 @@
 
                 <img src="assets/icon-hacienda.png" alt="Hacienda" class="location-icon-img">
 
-                <p class="location-time">7:00 PM</p>
+                <p class="location-time">4:00 PM</p>
                 <p class="location-venue">SUNNI PACHA | CASA DE CAMPO</p>
                 <p class="location-address">Condominio La Arena, Av. Casa Hacienda H-128-A3, Pachacamac 15823</p>
 
@@ -204,8 +204,7 @@
             </div>
             <h3>Admisión</h3>
             <img src="assets/icon-party.png" class="info-icon" alt="Adultos">
-            <h4>PROHIBIDO NIÑOS</h4>
-            <p>La boda es solo para mayores de 18 años.</p>
+            <p>Para una mejor experiencia para todos los presentes, hemos decidido celebrar este momento sin niños.</p>
         </div>
 
         <!-- Gift Card -->
@@ -217,8 +216,8 @@
             <img src="assets/icon-gift.png" class="info-icon" alt="Regalo">
             <p>¡Que nos acompañen es lo más importante! Y si está en tu disposición realizar una muestra de cariño
                 estaremos muy agradecidos.</p>
-            <button class="account-btn gift-btn" data-bank="Banco XXX" data-account="1234567890"
-                data-holder="Luis y Doris">NRO. DE CUENTA</button>
+            <button class="account-btn gift-btn" data-bank="BBVA" data-account="0011-0108-0200513018"
+                data-holder="Luis y Doris" data-cci="01110800020051301888" data-swift="BCONPEPL">NRO. DE CUENTA</button>
         </div>
     </section>
 
@@ -249,12 +248,15 @@
     <section class="rsvp-section">
         <div class="rsvp-card">
             <h2 class="rsvp-title">Confirmar asistencia</h2>
-            <p class="rsvp-text">Tu presencia hará que este día sea aún más especial para nosotros. Por favor, confirma
-                tu asistencia y acompáñanos en este momento tan importante.</p>
+            <p class="rsvp-text">Ya nos dijimos 'sí', pero la mejor parte es festejarlo. ¡Vengan a nuestra fiesta de
+                bodas y hagan que este día sea inolvidable!</p>
             <a class="rsvp-btn" target="_blank"
-                href="https://wa.me/51999721008?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Doris%20y%20Luis.%20Mi%20nombre%3A%20%5Btu%20nombre%5D.%20Gracias!">Confirmar</a>
-            <p class="rsvp-helper">Cualquier duda, contactar a la Wedding Planner: <br><strong>Paola Cortez </strong>
-                +51 999721008</p>
+                href="https://wa.me/51972798445?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Doris%20y%20Luis.%20Mi%20nombre%3A%20%5Btu%20nombre%5D.%20Gracias!">Confirmar</a>
+            <p class="rsvp-helper">Agradecemos nos apoyen confirmando su asistencia, ya sea que puedan o no acompañarnos
+                antes del 6 de febrero del 2026.</p>
+            <p class="rsvp-helper">Confirma tu asistencia vía WhatsApp al número <br><strong><a
+                        href="https://wa.me/51972798445?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Doris%20y%20Luis.%20Mi%20nombre%3A%20%5Btu%20nombre%5D.%20Gracias!"
+                        target="_blank">+51 972798445</a></strong></p>
         </div>
     </section>
 
@@ -291,11 +293,31 @@
             <button class="modal-close" aria-label="Cerrar">&times;</button>
             <h3 id="modal-title" class="modal-title">Datos Bancarios</h3>
             <p class="modal-text" id="modal-holder">Titular: —</p>
+            <img src="assets/logo_bank.png" class="modal-bank-logo" alt="Logo Banco">
             <p class="modal-text" id="modal-bank">Banco: —</p>
-            <div class="modal-account">
+
+            <hr class="modal-divider">
+
+            <!-- Account Number -->
+            <div class="modal-row">
                 <span class="modal-label">Nro. de cuenta</span>
                 <div id="modal-account-number" class="modal-account-number">—</div>
-                <button id="copy-account" class="modal-copy-btn">Copiar</button>
+                <button id="copy-account" class="modal-copy-btn" data-copy-target="modal-account-number">Copiar</button>
+            </div>
+
+            <!-- CCI -->
+            <div class="modal-row" id="cci-container">
+                <span class="modal-label">CCI</span>
+                <div id="modal-cci-number" class="modal-account-number">—</div>
+                <button id="copy-cci" class="modal-copy-btn" data-copy-target="modal-cci-number">Copiar</button>
+            </div>
+
+            <!-- SWIFT -->
+            <div class="modal-row" id="swift-container">
+                <span class="modal-label">Código Swift</span>
+                <div id="modal-swift-code" class="modal-account-number">—</div>
+                <button id="copy-swift" class="modal-copy-btn" data-copy-target="modal-swift-code">Copiar</button>
+                <p class="modal-note">* Para transferencias desde el exterior</p>
             </div>
         </div>
     </div>
@@ -306,10 +328,15 @@
             <button class="modal-close" aria-label="Cerrar">&times;</button>
             <h3 id="wish-modal-title" class="modal-title">Dejar mi deseo</h3>
             <p class="modal-text">Escríbenos un mensaje para nuestro gran día:</p>
-            <textarea id="wish-textarea" rows="5"
+
+            <input type="text" id="wish-name" placeholder="Tu nombre"
+                style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-family: var(--font-subheading);color:#555;margin-bottom:10px;">
+
+            <textarea id="wish-textarea" rows="5" placeholder="Tu mensaje..."
                 style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-family: var(--font-subheading);color:#555;"></textarea>
+
             <div style="margin-top:15px;">
-                <button id="copy-wish" class="modal-copy-btn">Copiar</button>
+                <button id="send-wish-btn" class="modal-copy-btn">Enviar Mensaje</button>
             </div>
         </div>
     </div>
