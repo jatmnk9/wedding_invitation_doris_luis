@@ -1204,6 +1204,52 @@ section {
     border-color: #b57c7c;
 }
 
+/* Specific styling for Gift Card to make it look optional/subtle */
+.gift-card h3 {
+    font-size: 1.0rem;
+    /* Smaller header */
+    margin-bottom: 15px;
+}
+
+.gift-card .info-icon {
+    width: 65px;
+    /* Smaller icon to reduce visual weight */
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.gift-card p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.gift-btn {
+    margin-top: 15px;
+    padding: 8px 25px;
+    /* Smaller padding */
+    font-size: 0.8rem;
+    /* Smaller font */
+    background-color: transparent;
+    /* Transparent background */
+    color: #C48F8F;
+    border: 1px solid #d4a5a5;
+    box-shadow: none;
+    /* No shadow */
+    letter-spacing: 1.5px;
+}
+
+.gift-btn:hover {
+    background-color: rgba(196, 143, 143, 0.05);
+    /* Very subtle hover */
+    color: #b57c7c;
+    border-color: #b57c7c;
+    box-shadow: none;
+    transform: translateY(0);
+    /* Remove lift effect to keep it low profile */
+}
+
 /* Modal styles (Global) */
 .modal {
     position: fixed;
