@@ -1774,6 +1774,13 @@ section {
     font-size: 0.95rem;
 }
 
+.rsvp-note {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #e0d0d0;
+    font-size: 0.9rem;
+}
+
 @media (max-width: 600px) {
     .rsvp-card {
         max-width: 85%;
