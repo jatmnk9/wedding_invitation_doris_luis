@@ -1876,7 +1876,7 @@ section {
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 90px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -1897,7 +1897,7 @@ section {
 
 .scroll-indicator p {
     font-family: var(--font-subheading);
-    color: #fff;
+    color: #C48F8F;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1907,8 +1907,8 @@ section {
 .arrow-down {
     width: 20px;
     height: 20px;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-right: 2px solid #C48F8F;
+    border-bottom: 2px solid #C48F8F;
     transform: rotate(45deg);
     margin: 0 auto;
 }
@@ -1931,6 +1931,7 @@ section {
         transform: translateX(-50%) translateY(-5px);
     }
 }
+
 /* Variantes para indicadores de scroll en secciones claras */
 .scroll-indicator.relative {
     position: relative;
@@ -1954,12 +1955,19 @@ section {
 
 
 @keyframes bounce-relative {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
+
     40% {
         transform: translateY(-10px);
     }
+
     60% {
         transform: translateY(-5px);
     }
@@ -1968,4 +1976,3 @@ section {
 .scroll-indicator.relative {
     animation: bounce-relative 2s infinite;
 }
-
