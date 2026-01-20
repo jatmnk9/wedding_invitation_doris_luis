@@ -139,6 +139,30 @@ body {
     box-shadow: 0 8px 25px rgba(196, 143, 143, 0.3);
 }
 
+.click-instruction {
+    font-family: var(--font-body);
+    /* Or subheading */
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    animation: pulse-text 2s infinite ease-in-out;
+}
+
+@keyframes pulse-text {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
