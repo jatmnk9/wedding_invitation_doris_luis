@@ -1897,7 +1897,7 @@ section {
 
 .scroll-indicator p {
     font-family: var(--font-subheading);
-    color: #C48F8F;
+    color: #555;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1907,8 +1907,8 @@ section {
 .arrow-down {
     width: 20px;
     height: 20px;
-    border-right: 2px solid #C48F8F;
-    border-bottom: 2px solid #C48F8F;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
     transform: rotate(45deg);
     margin: 0 auto;
 }
