@@ -30,7 +30,7 @@
     </div>
 
     <!-- Invitation Container -->
-    <div class="invitation-container">
+    <div class="invitation-container" id="inicio">
 
         <!-- The Card with Envelope Elements -->
         <div class="card-wrapper">
@@ -56,11 +56,18 @@
             </div>
         </div>
 
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <a href="#fecha" class="scroll-link">
+                <p>VER MÁS</p>
+                <div class="arrow-down"></div>
+            </a>
+        </div>
 
     </div>
 
     <!-- Calendar Section -->
-    <section class="calendar-section">
+    <section class="calendar-section" id="fecha">
         <!-- Decoration Corners -->
         <img src="assets/floral-corner.png" class="calendar-corner-img corner-top-left" alt="decoracion">
         <!-- Can flip for bottom right or use another asset -->
@@ -110,6 +117,13 @@
         </div>
 
         <div class="wedding-text-date">Sábado 28 de Febrero</div>
+
+        <div class="scroll-indicator relative dark">
+            <a href="#padres" class="scroll-link">
+                <p>VER MÁS</p>
+                <div class="arrow-down"></div>
+            </a>
+        </div>
     </section>
 
     <!-- Photo Banner (Like reference) -->
@@ -118,7 +132,7 @@
     </div>
 
     <!-- Parents & Godparents Section -->
-    <section class="parents-section">
+    <section class="parents-section" id="padres">
         <div class="flowers-overflow-container">
             <img src="assets/floral-side.png" class="floral-deco floral-parents-left" alt="Flores">
             <img src="assets/floral-side.png" class="floral-deco floral-parents-right" alt="Flores">
@@ -144,10 +158,17 @@
             </div>
 
         </div>
+
+        <div class="scroll-indicator relative dark">
+            <a href="#lugar" class="scroll-link">
+                <p>VER MÁS</p>
+                <div class="arrow-down"></div>
+            </a>
+        </div>
     </section>
 
     <!-- Details & Music Section (Now Location) -->
-    <section class="details-section">
+    <section class="details-section" id="lugar">
         <!-- New Location Card Structure -->
         <div class="location-card">
             <!-- Wax Seal on top -->
@@ -178,10 +199,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="scroll-indicator relative dark">
+            <a href="#reglas" class="scroll-link">
+                <p>VER MÁS</p>
+                <div class="arrow-down"></div>
+            </a>
+        </div>
     </section>
 
     <!-- Info Cards Section (Dress Code & Gifts) -->
-    <section class="info-cards-section">
+    <section class="info-cards-section" id="reglas">
         <!-- Floral decorations like itinerary -->
         <img src="assets/floral-side.png" class="floral-deco floral-left" alt="Flores">
         <img src="assets/floral-side.png" class="floral-deco floral-right" alt="Flores">
@@ -232,10 +260,17 @@
             <button class="account-btn gift-btn" data-bank="BBVA" data-account="0011-0108-0200513018"
                 data-holder="Luis y Doris" data-cci="01110800020051301888" data-swift="BCONPEPL">NRO. DE CUENTA</button>
         </div>
+
+        <div class="scroll-indicator relative dark">
+            <a href="#deseos" class="scroll-link">
+                <p>VER MÁS</p>
+                <div class="arrow-down"></div>
+            </a>
+        </div>
     </section>
 
     <!-- Wish Box Section -->
-    <section class="wish-section">
+    <section class="wish-section" id="deseos">
         <!-- Large florals behind envelope -->
         <img src="assets/floral-side.png" class="floral-deco wish-floral-left" alt="Flores">
         <img src="assets/floral-side.png" class="floral-deco wish-floral-right" alt="Flores">
@@ -255,10 +290,17 @@
             <p class="wish-text">Tu cariño y buenos deseos harán nuestro día aún más especial. Escríbelos aquí</p>
             <button class="wish-btn">Dejar mi deseo</button>
         </div>
+
+        <div class="scroll-indicator relative dark">
+            <a href="#rsvp" class="scroll-link">
+                <p>VER MÁS</p>
+                <div class="arrow-down"></div>
+            </a>
+        </div>
     </section>
 
     <!-- RSVP Section (Confirmar Asistencia) -->
-    <section class="rsvp-section">
+    <section class="rsvp-section" id="rsvp">
         <div class="rsvp-card">
             <h2 class="rsvp-title">Confirmar asistencia</h2>
             <p class="rsvp-text">Agradecemos nos apoyen confirmando su asistencia antes del 6 de febrero del 2026, ya
@@ -276,6 +318,13 @@
                 al Ministerio de Cultura (Javier Prado). Si deseas utilizarla, por favor confírmanos vía WhatsApp para
                 reservar tu asiento.
             </p>
+        </div>
+
+        <div class="scroll-indicator relative dark">
+            <a href="#countdown-section" class="scroll-link">
+                <p>VER MÁS</p>
+                <div class="arrow-down"></div>
+            </a>
         </div>
     </section>
 
@@ -305,6 +354,7 @@
         <div class="final-initials">D &amp; L</div>
         <img src="assets/couple-3.png" alt="Doris y Luis" class="final-photo">
     </section>
+
 
     <!-- Modal for account number -->
     <div id="account-modal" class="modal" aria-hidden="true">
