@@ -898,6 +898,15 @@ section {
 }
 
 /* Minimal dove icon for in memoriam */
+
+/* Yape Modal Specifics */
+.modal-yape-logo {
+    display: block;
+    margin: 0 auto 15px;
+    border-radius: 12px;
+}
+
+
 .in-memoriam {
     display: inline-flex;
     align-items: center;

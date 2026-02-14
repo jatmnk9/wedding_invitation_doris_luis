@@ -131,6 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelectorAll('.account-btn').forEach(btn => {
+        // Exclude Yape button from this generic handler
+        if (btn.id === 'yape-btn') return;
+
         btn.addEventListener('click', () => {
             const data = {
                 bank: btn.getAttribute('data-bank'),
@@ -154,26 +157,55 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
+    }
 
-        // Generic Copy Logic
-        modal.querySelectorAll('.modal-copy-btn').forEach(btn => {
-            btn.addEventListener('click', async () => {
-                const targetId = btn.getAttribute('data-copy-target');
-                const targetEl = document.getElementById(targetId);
-                if (!targetEl) return;
+    // Generic Copy Logic (Global)
+    document.querySelectorAll('.modal-copy-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const targetId = btn.getAttribute('data-copy-target');
+            const targetEl = document.getElementById(targetId);
+            if (!targetEl) return;
 
-                const text = targetEl.textContent.trim();
-                try {
-                    await navigator.clipboard.writeText(text);
-                    const originalText = btn.textContent;
-                    btn.textContent = 'Copiado!';
-                    setTimeout(() => btn.textContent = originalText, 2000);
-                } catch (err) {
-                    console.error('Clipboard error', err);
-                }
-            });
+            const text = targetEl.textContent.trim();
+            try {
+                await navigator.clipboard.writeText(text);
+                const originalText = btn.textContent;
+                btn.textContent = 'Copiado!';
+                setTimeout(() => btn.textContent = originalText, 2000);
+            } catch (err) {
+                console.error('Clipboard error', err);
+            }
+        });
+    });
+
+    // --- Yape Modal ---
+    const yapeBtn = document.getElementById('yape-btn');
+    const yapeModal = document.getElementById('yape-modal');
+    const yapeClose = yapeModal ? yapeModal.querySelector('.modal-close') : null;
+
+    if (yapeBtn && yapeModal) {
+        yapeBtn.addEventListener('click', () => {
+            yapeModal.classList.add('open');
+            yapeModal.setAttribute('aria-hidden', 'false');
         });
     }
+
+    if (yapeClose) {
+        yapeClose.addEventListener('click', () => {
+            yapeModal.classList.remove('open');
+            yapeModal.setAttribute('aria-hidden', 'true');
+        });
+    }
+
+    if (yapeModal) {
+        yapeModal.addEventListener('click', (e) => {
+            if (e.target === yapeModal) {
+                yapeModal.classList.remove('open');
+                yapeModal.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+
 
     // --- Wish Modal & Google Sheet Integration ---
     const wishModal = document.getElementById('wish-modal');
